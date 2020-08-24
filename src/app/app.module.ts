@@ -1,18 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CreateOfficerComponent } from './components/create-officer/create-officer.component';
+import { ViewOfficersComponent } from './components/view-officers/view-officers.component';
+import { HisOfficersServiceService } from './services/his-officers-service.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateOfficerComponent,
+    ViewOfficersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HisOfficersServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,132 @@
+<div class="container" *ngIf="!displaySuccessMsg">
+    <h3>Create New Officer</h3>
+    <form [formGroup]="hisOfficerGroup">
+        <div hidden class="row">
+            <div class="col-sm-5">
+                <div class="row form-group">
+                    <div class="col-sm-5">
+                        <label>Officer Id : </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="number" class="form-control" name="id" formControlName="oid" [(ngModel)]="hisOfficerModel.officerId">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="row form-group">
+                    <div class="col-sm-5">
+                        <label>First Name : </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" [class.is-invalid]="hisOfficerGroup.controls.ftName.errors && hisOfficerGroup.controls.ftName.touched"  name="fName" [(ngModel)]="hisOfficerModel.fname" formControlName="ftName">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="row form-group">
+                    <div class="col-sm-5">
+                        <label>Last Name : </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" [class.is-invalid]="hisOfficerGroup.controls.ltName.errors && hisOfficerGroup.controls.ltName.touched" name="lName" [(ngModel)]="hisOfficerModel.lname" formControlName="ltName">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="row form-group">
+                    <div class="col-sm-5">
+                        <label>Email : </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" [class.is-invalid]="hisOfficerGroup.controls.email.invalid && hisOfficerGroup.controls.email.touched" name="email" [(ngModel)]="hisOfficerModel.email" formControlName="email">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="row form-group">
+                    <div class="col-sm-5">
+                        <label>Phone Number : </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="number" class="form-control" [class.is-invalid]="hisOfficerGroup.controls.phoNo.errors && hisOfficerGroup.controls.phoNo.touched"  name="pnum" [(ngModel)]="hisOfficerModel.phoneNo" formControlName="phoNo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="row form-group">
+                    <div class="col-sm-5">
+                        <label>Date Of Birth : </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" [class.is-invalid]="hisOfficerGroup.controls.dob.errors && hisOfficerGroup.controls.dob.touched"    name="dob" [(ngModel)]="hisOfficerModel.dob" formControlName="dob">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="row form-group">
+                    <div class="col-sm-5">
+                        <label>Gender : </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="radio" id="male"  name="gender" value="M" formControlName="gender" [(ngModel)]="hisOfficerModel.gender">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="F" style="margin-left: 28px;" formControlName="gender" [(ngModel)]="hisOfficerModel.gender">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="row form-group">
+                    <div class="col-sm-5">
+                        <label>Role : </label>
+                    </div>
+                    <div class="col-sm-7">
+                       <select id="country" class="form-control"  name="role" formControlName="role" [(ngModel)]="hisOfficerModel.role">
+                           <option value="" selected  >Select Role</option>
+                           <option value="ADMIN">Admin</option>
+                           <option value="CASE WORKER">Case Worker</option>
+                           
+                       </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <button type="reset" class="button-margin btn btn-secondary">Reset</button>
+            <button type="submit" class="btn btn-secondary" (click)="onSubmit1()">Submit</button>
+        </div>
+    </form>
+</div>
+
+<!--<div class="container">
+    <form [formGroup]="hisOfficerGroup">
+        <div class="form-group">
+            <label for="email">Email : </label>
+            <input type="text" name="email" [class.is-invalid]="hisOfficerGroup.controls.email.touched && hisOfficerGroup.controls.email.errors" [(ngModel)]="hisOfficerModel.email" id="email" placeholder="enter email" class="form-control" formControlName="email">
+            {{hisOfficerModel.email}}
+        </div>
+    </form>
+</div> -->
+<div  class="container" *ngIf="displaySuccessMsg">
+    <div>
+        <h1>{{successMessage}}</h1>
+    </div>
+    <div>
+        <a href="http://localhost:4200/create">Create New Officer????? Click Here!!!!!</a>
+    </div>
+</div> 

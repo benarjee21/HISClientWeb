@@ -1,0 +1,25 @@
+<div class="container">
+    <h3>Officers List</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let officer of officers">
+                <td>{{officer.officerId}}</td>
+                <td>{{officer.fname+" "+officers.fname}}</td>
+                <td>{{officer.email}}</td>
+                <td>
+                    <button class="btn btn-info">Update</button>
+                    <button class="btn btn-danger" *ngIf="officers.activeStatus==0" (click)="updateStatus(officer.officerId)">Delete</button>
+                    <button class="btn btn-danger" *ngIf="officers.activeStatus==1"(click)="updateStatus(officer.officerId)">Activate</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
